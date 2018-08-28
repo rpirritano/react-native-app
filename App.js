@@ -1,5 +1,5 @@
 import React, {Component} from 'react'; //ES6 import library into a variable called react
-import {Platform, StyleSheet, Text, View, Image, Dimensions, StatusBar} from 'react-native'; //ES6 destructuring
+import {Platform, StyleSheet, Text, View, Image, Dimensions, ImageBackground, StatusBar} from 'react-native'; //ES6 destructuring
 
 import picSierra from './assets/Sierra-Spencer.png'
 import picTanner from './assets/Tanner-McTab.png'
@@ -12,12 +12,8 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image style={styles.pic} source={picSierra}>
-          <Text style={styles.userName}>Sierra Spencer</Text>
-        </Image>
-        <Image style={styles.pic} source={picTanner}>
-          <Text style={styles.userName}>Tanner McTab</Text>
-        </Image>
+        <Image style={styles.pic} source={picSierra}></Image>
+        <Image style={styles.pic} source={picTanner}></Image>
       </View>
     );
   }
