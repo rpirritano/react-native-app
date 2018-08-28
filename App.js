@@ -8,7 +8,7 @@ export default class App extends Component {
   //does not render HTML elements since no browser
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <StatusBar hidden={true} />
         <Text style={styles.defaultText}>Julian</Text>
         <Text style={[styles.defaultText, styles.selectedText]}>ROBErt</Text>
@@ -20,9 +20,26 @@ export default class App extends Component {
 
 //react native does not use CSS, only uses CSS syntax
 //values in pxs
-
+//display by defaut uses css flexbox
+//container will be the parent flexbox component and in this case,
+//the text will be the children flexbox components
+//some flexbox:
+//flexDirection,
+//justifyContent: center, flex-start, flex-end, space-between, space-around
+//   - works around the main axis, ie if 'column or row', then y or x axis, respectively
+//flex: ie, flex 2, will grow 2 times of 1, similar to flex-grow in reg UI
+//use alignItems to control the cross-axis of the above
+//alignSelf: to align the flex children: strecth, flex-end, etc 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'space-around',
+    backgroundColor: '#DDD'
+  },
   defaultText: {
+    textAlign: 'center',
     fontSize: 22,
     padding: 10,
     margin: 5,
@@ -30,6 +47,7 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   selectedText: {
+    alignSelf: 'flex-end',
     backgroundColor: 'yellow',
     color: 'blue',
     fontWeight: 'bold'
